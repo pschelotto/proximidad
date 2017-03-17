@@ -1,0 +1,37 @@
+options:
+  type: InnoDB
+  collate: utf8_general_ci
+  charset: utf8
+  
+Tienda:
+  columns:
+    nombre: {type: string(50), notblank: true, comment:'Nombre de la tienda'}
+    telefono: {type: string(10), comment:'Teléfono de la tienda'}
+    direccion: {type: string(80), comment:'Dirección de la tienda'}
+    codpos: {type: string(5), comment:'Dirección de la tienda'}
+    poblacion: {type: string(20), comment:'Población de la tienda'}
+    latitud: {type: integer, comment: 'latitud de la tienda'}
+    longitud: {type: integer, comment: 'longitud de la tienda'}
+
+Servicio:
+  columns:
+    titulo: {type: string(50), notblank: true, comment:'Nombre del servicio'}
+    descripcion: {type: text, comment:'Descripción del servicio'}
+    tienda_id: {type: integer, comment:'Tienda que ofrece el servicio'}
+    imagen: {type: string(255), comment:'Imagen del servicio'}
+  relations:
+    Tienda: {onDelete: SET NULL, local: tienda_id, foreign: id, foreignType: one}
+
+Franja:
+  columns:
+    dia_semana: {type: integer, comment:'día de la semana'}
+    franja_desde: {type: string(5), comment:'franja desde'}
+    franja_hasta: {type: string(5), comment:'franja hasta'}
+
+FranjaTienda:
+  columns:
+    franja_id: integer
+    tienda_id: integer
+  relations:
+    Franja: {local: franja_id, foreign: id, onDelete: cascade}
+    Tienda: {local: tienda_id, foreign: id, onDelete: cascade}

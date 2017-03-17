@@ -1,3 +1,21 @@
+tienda:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Tienda
+    module:               tienda
+    prefix_path:          /tienda
+    column:               id
+    with_wildcard_routes: true
+
+servicio:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Servicio
+    module:               servicio
+    prefix_path:          /servicio
+    column:               id
+    with_wildcard_routes: true
+
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 

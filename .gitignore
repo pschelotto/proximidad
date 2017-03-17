@@ -2,3 +2,4 @@ config/databases.yml
 config/app.yml
 cache/*
 log/*
+web/uploads/servicios/*

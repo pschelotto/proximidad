@@ -9,6 +9,18 @@
     <?php include_javascripts() ?>
   </head>
   <body>
+  	<?php
+		$menus = array(
+			'guard/users' => 'Usuarios',
+			'@servicio' => 'Servicios',
+			'@tienda' => 'Tiendas',
+		);
+
+		echo "<ul>";
+		foreach($menus as $url => $menu)
+			echo "<a href='".url_for($url)."'><li>$menu</li></a>";
+		echo "</ul>";
+  	?>
     <?php echo $sf_content ?>
   </body>
 </html>

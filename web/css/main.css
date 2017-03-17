@@ -1,0 +1,10 @@
+#sf_admin_container .thumb label{
+	width:auto;
+}
+.thumb img{
+	width:80px;
+}
+
+.sf_admin_list_td_imagen{
+	text-align:center !important;
+}

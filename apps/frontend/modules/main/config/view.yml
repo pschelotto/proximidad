@@ -1,0 +1,3 @@
+all:  
+  javascripts:    [stetik.js]
+  stylesheets:    [stetik.css]  
