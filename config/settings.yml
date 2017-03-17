@@ -1,3 +1,9 @@
 default:
-    error_reporting:        <?php echo (E_ALL & ~E_DEPRECATED & ~E_NOTICE | E_STRICT)."\n" ?>
-    jquery_core: jquery-1.4.2.min.js
+  error_reporting:        <?php echo (E_ALL & ~E_DEPRECATED & ~E_NOTICE | E_STRICT)."\n" ?>
+  jquery_core: jquery-1.4.2.min.js
+
+  login_module:           sfGuardAuth
+  login_action:           signin
+
+  secure_module:          sfGuardAuth
+  secure_action:          secure
