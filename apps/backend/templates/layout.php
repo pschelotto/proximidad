@@ -11,15 +11,40 @@
   <body>
   	<?php
 		$menus = array(
-			'guard/users' => 'Usuarios',
+			'Control de Acceso' => array(
+				'guard/users' => 'Usuarios',
+				'guard/groups' => 'Grupos',
+				'guard/permissions' => 'Permisos',
+			),
 			'@servicio' => 'Servicios',
 			'@tienda' => 'Tiendas',
 		);
 
+		echo "<div id='sf_admin_menu'>";
 		echo "<ul>";
 		foreach($menus as $url => $menu)
-			echo "<a href='".url_for($url)."'><li>$menu</li></a>";
+		{
+			if(is_array($menu))
+			{
+				echo "<li class='node'>$url";
+				echo "<ul class='desplegable'>";
+				foreach($menu as $url => $submenu)
+				{
+					$selected = strstr($_SERVER['REQUEST_URI'],$url)!==false ? 'selected':'';
+					echo "<a href='".url_for($url)."'><li class='$selected'>$submenu</li></a>";
+				}
+
+				echo "</ul></li>";
+			}
+			else
+			{
+				$selected = '@'.sfContext::getInstance()->getModuleName()==$url ? 'selected':'';
+				echo "<a href='".url_for($url)."'><li class='node $selected'>$menu</li></a>";
+			}
+		}
 		echo "</ul>";
+		echo "<div style='clear:both'></div>";
+		echo "</div>";
   	?>
     <?php echo $sf_content ?>
   </body>

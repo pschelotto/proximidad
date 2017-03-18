@@ -12,7 +12,7 @@
  */
 class Servicio extends BaseServicio
 {
-	function verimagen(){
-		return "<img src='/uploads/servicios/".$this->getImagen()."'/>";
+	function getSlug(){
+		return $this->getId();
 	}
 }

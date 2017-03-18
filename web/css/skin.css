@@ -1,0 +1,96 @@
+html,body{height:100%}
+body{line-height:1;background: #F7F9FB !important}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+nav ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}
+a{text-decoration: none;margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent;-webkit-transition:.3s ease;-moz-transition:.3s ease;-ms-transition:.3s ease;-o-transition:.3s ease;transition:.3s ease;outline:inherit!important;outline-offset:inherit!important}
+a:hover{color:#666}
+input::-ms-clear{display:none}
+ins{background-color:#ff9;color:#000;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:700}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+input:focus,select:focus{outline:none;border-color:#fff!important;box-shadow:none}
+header,main,footer{position:relative;clear:both}
+main{background: transparent !important}
+header,footer{width:100%}
+header{background: #fff !important}
+/*tooltip*/
+
+/*FIN*/
+/*SEARCH IN LIST*/
+.bcmContentSearchHeader{height: 84px;width: 100%;background: #f2f2f2;border-bottom: 1px solid #f2f2f2;box-shadow: 0.5px 0.5px 1.5px 0 rgba(95, 116, 123, 0.2);z-index: 999}
+.bcmContentSearchHeader .bcmContentCenterSearch{margin: 0 auto;width: 1235px;padding: 6px 30px;background: #f2f2f2;text-align: right}
+/*Search Control*/
+.bcmCntrlSearch{border: solid 0.5px #e7e7e7; border-radius: 3px;position: relative;padding: 1px;background: #fff;text-align: left}
+.bcmCntrlSearch input[type="text"]{ border: 0 none;padding: 2px 0 2px 15px;margin: 10px 0;font-size: 16px;width: 384px;border-right: solid 1px #f0f0f0;color: #5f747b;display: inline-block}
+.bcmCntrlSearch input[type="text"]:nth-child(2){margin: 0 7px 0 0}
+.bcmCntrlSearch input[type="text"]:focus{ border-right: solid 1px #f0f0f0 !important}
+.bcmCntrlSearch .contentBtnOrangeSearch {display: inline-block;width: 88.78px;}
+.bcmCntrlSearch .btnOrangeSearch, .bcmCntrlSearch .contentBtnOrangeSearch button, .btnCalendarDate {text-align: center;color: #ff8d44 !important;text-transform: uppercase;border: solid 1px #e7e7e7;padding: 10px;font-size: 11px;text-decoration: none !important;margin: 0 0 0 5px;border-radius: 3px;letter-spacing: 1px;background: #fff;cursor: pointer}
+.bcmCntrlSearch .contentBtnOrangeSearch button {padding: 10px 9px}
+.bcmCntrlSearch .btnOrangeSearch:hover, .bcmCntrlSearch .contentBtnOrangeSearch button:hover, .btnCalendarDate:hover, .bcmCntrlSearch .btnOrangeSearch:focus {border: solid 1px #ff8d44 !important}
+.bcmCntrlSearch .btnOrangeSearch:active, .bcmCntrlSearch .contentBtnOrangeSearch button:active, .btnCalendarDate:active, .bcmCntrlSearch .contentBtnOrangeSearch button:focus, .btnCalendarDate:focus {background:#FFEEE3;border: solid 1px #FFEEE3;    box-shadow: none;outline: 0 none}
+.dateSelected {background:#FFEEE3 !important;border: solid 1px #FFEEE3  !important;box-shadow: none  !important;outline: 0 none  !important}
+.btnCalendarDate {margin: -2px 0 10px 10px;display: inline-block;padding: 8px 10px}
+#newDatePicker{visibility: hidden;position: absolute;bottom: 0;height: 75px;padding: 0;margin: 0;right: 240px;background: #333;width: 79px;}
+.bcmCntrlSearch .inputOnButtons{position: absolute;top: 0;right: 160px;background: #fff;overflow: hidden;height: 0}
+.bcmCntrlSearch .inputOnButtonsOpen {height: 53px;}
+.bcmCntrlSearch .inputOnButtons input[type="text"]{margin: 9px 0;width: 227px;color: #ff8d44;text-transform: uppercase;border: solid 1px #FFEEE3;padding: 10px;font-size: 11px;text-decoration: none;border-radius: 3px;letter-spacing: 1px;background: no-repeat scroll  203px center #FFEEE3}
+.bcmCntrlSearch .inputOnButtons .clearSearchInput {color: #ff8d44; position: absolute;z-index: 3;right: 8px;top: 13px;font-size: 18px;text-decoration: none }
+.bcmCntrlSearch input[type="submit"]{color: #fff;background: #ff8d44;font-size: 18px;letter-spacing: 1px;border: 1px solid #ff8d44;height: 54px;text-transform: uppercase;padding: 0 35px;border-radius: 0 3px 3px 0;position: relative;margin: -1px -5px -1px 7px}
+.bcmCntrlSearch input[type="submit"]:hover{background: #FA731C;border-color: #FA731C}
+.bcmCntrlSearch .bcmSearchIcon {background: url(/images/localization-icon.png) no-repeat center transparent;height: 34px;width: 34px;position: absolute;z-index: 2;top: 9px;right: 408px;border-radius: 3px;}
+.bcmCntrlSearch .bcmSearchIcon:hover {background-color:#FFEEE3}
+.bcmCntrlSearch .contentAncherClearInputSearch {position: relative;display: inline-block;}
+.bcmCntrlSearch .contentAncherClearInputSearch .clearSearchInput {position: absolute;z-index: 3;right: 19px;top: 8px;font-size: 18px;text-decoration: none}
+
+.bcmSelectorCitiesHome .tab-content .bcmCntrlSearch .contentAncherClearInputSearch .dvRecentLocation {width: 299px}
+.bcmCntrlSearch .contentAncherClearInputSearch .dvRecentLocation {position: absolute;z-index: 3;background: #fff;box-shadow: 0.5px 0.5px 1.5px 0.5px rgba(95, 116, 123, 0.2); border: solid 0.5px #e7e7e7;max-height: 234px ;overflow: auto;min-height: 47px;width: 384px;top: 38px;left: -2px;}
+.bcmCntrlSearch .contentAncherClearInputSearch .dvRecentLocation > ul {margin: 0;}
+.bcmCntrlSearch .contentAncherClearInputSearch .dvRecentLocation > ul > li {color: #5f747b;text-align: left;border-bottom: solid 0.5px #e7e7e7;font-size: 16px;padding: .8em 0 .8em .8em !important;}
+.bcmCntrlSearch .contentAncherClearInputSearch .dvRecentLocation > ul > .titt{ background-color: rgba(95, 116, 123, 0.1);font-size: 11px;letter-spacing: .2px;padding: .2em 0 ;text-align: center}
+.bcmCntrlSearch .contentAncherClearInputSearch .dvRecentLocation > ul > li:hover{background-color: #f3f3f3;}
+.bcmCntrlSearch .contentAncherClearInputSearch .dvRecentLocation > ul > li.selected{background-color: #f3f3f3;}
+.bcmCntrlSearch .contentAncherClearInputSearch .dvRecentLocation > ul > .titt:hover{background-color: rgba(95, 116, 123, 0.1)}
+
+.bcmSelectorCitiesHome .tab-content .bcmCntrlSearch .contentAncherClearInputSearch .predictionsSearch {width: 299px}
+.bcmCntrlSearch .contentAncherClearInputSearch .predictionsSearch{position: absolute;z-index: 3;background: #fff;box-shadow: 0.5px 0.5px 1.5px 0.5px rgba(95, 116, 123, 0.2); border: solid 0.5px #e7e7e7;max-height: 234px ;overflow: auto;min-height: 47px;width: 384px;top: 38px;left: -2px;}
+.bcmCntrlSearch .contentAncherClearInputSearch .predictionsSearch > ul {margin: 0;}
+.bcmCntrlSearch .contentAncherClearInputSearch .predictionsSearch > ul > li {color: #5f747b;text-align: left;border-bottom: solid 0.5px #e7e7e7;font-size: 16px;padding: .8em 0 .8em .8em !important;}
+.bcmCntrlSearch .contentAncherClearInputSearch .predictionsSearch > ul > .listGreySearch{ background-color: rgba(95, 116, 123, 0.1);font-size: 11px;letter-spacing: .2px;padding: .2em 0 ;text-align: center}
+.bcmCntrlSearch .contentAncherClearInputSearch .predictionsSearch > ul > li:hover{background-color: #f3f3f3 !important;}
+.bcmCntrlSearch .contentAncherClearInputSearch .predictionsSearch > ul > li.selected{background: #f3f3f3 none repeat scroll 0 0 !important;}
+.bcmCntrlSearch .contentAncherClearInputSearch .predictionsSearch > ul > .listGreySearch:hover{background-color: rgba(95, 116, 123, 0.1)}
+.bcmCntrlSearch .contentAncherClearInputSearch .predictionsSearch > ul > li strong{background: rgba(124,204,231,.3) !important;font-style: normal !important;font-weight: normal !important;padding: .2em 0;}
+
+
+
+/* Cambios todo mas pequeÃ±o*/
+.bcmTitleResultHome h1 span{font-size: 39px;}
+.bcmTitleResultHome p{top: 165px;}
+.bcmTitleResultHome p span{font-size: 21px;}
+.bcmSelectorCitiesHome{width: 972px;margin: 0 0 0 -486px;}
+.bcmSelectorCitiesHome .tab-content{padding: 5px;}
+.bcmCntrlSearch input[type="submit"]{font-size: 17px;height: 40px;padding: 0 29px;}
+.bcmCntrlSearch .contentBtnOrangeSearch {width: 60.78px;}
+.bcmCntrlSearch input[type="text"]{margin: 6px 0;}
+.bcmCntrlSearch .bcmSearchIcon {top: 3px;right: 385px;}
+.bcmSelectorCitiesHome .tab-content .bcmCntrlSearch input[type="text"] {width: 301px;}
+.bcmCntrlSearch .inputOnButtons {right: 147px;}
+.bcmCntrlSearch .inputOnButtonsOpen {height: 40px;}
+.bcmCntrlSearch .inputOnButtons .clearSearchInput{top: 8px}
+.bcmCntrlSearch .inputOnButtons input[type="text"]{margin: 2px 0;padding: 10px 30px 10px 10px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.bcmSelectorCitiesHome .tab-content .bcmCntrlSearch .inputOnButtons input[type="text"]{width: 200px;}
+/*#ui-datepicker-div{margin: -54px 0 0 -52px;}*/
+.bcmContentSearchHeader{height: 55px}
+.bcmContentSearchHeader .bcmContentCenterSearch{ width: 1190px;}
+.fixed-header .bcmCntrlSearch{width: 1002.27px;margin:  0;}
+.fixed-header .bcmContentCenterSearch {padding: 7px 30px 5px;}
+.bcmCntrlSearch .contentAncherClearInputSearch .clearSearchInput{top: 5px}
+.bcmContentSearchHeader .bcmCntrlSearch .inputOnButtons{right: 146px;}
+.bcmContentSearchHeader .bcmCntrlSearch .inputOnButtons input[type="text"]{width: 201px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}

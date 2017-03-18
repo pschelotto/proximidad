@@ -1,3 +1,51 @@
+
+#sf_admin_menu
+{
+  padding: 4px 6px;
+  background: #F1F3F5;
+  border-bottom: 1px solid #ccc;
+  margin-bottom:15px;
+  margin-top:-15px;
+}
+#sf_admin_menu ul{
+	margin:0;
+}
+#sf_admin_menu li {
+    list-style: none;
+    cursor:pointer;
+    padding:4px;
+    color:black;
+}
+#sf_admin_menu ul.desplegable{
+	display:none;
+	position:absolute;
+    background-color: #eee;
+    padding:5px;
+	margin:0;
+	width:100px;
+	border:1px solid #aaa;
+}
+#sf_admin_menu li:hover ul, #sf_admin_menu ul:hover{
+	display:block;
+}
+#sf_admin_menu li.node {
+    display: block;
+    float: left;
+    position: relative;
+    padding: 5px 20px;
+    background: url(../images/menubardown.gif) no-repeat right;
+}
+
+#sf_admin_menu li.selected{
+	background:white;
+	border:1px outset #eee;
+}
+#sf_admin_menu a{
+	text-decoration:none;
+}
+
+
+
 #sf_admin_container .thumb label{
 	width:auto;
 }
@@ -7,4 +55,8 @@
 
 .sf_admin_list_td_imagen{
 	text-align:center !important;
+}
+
+.servicio img{
+	max-width:280px;
 }
