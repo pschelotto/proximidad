@@ -1,3 +1,3 @@
 all:  
-  javascripts:    [stetik.js]
-  stylesheets:    [stetik.css,skin.css]  
+  javascripts:    [proximidad.js]
+  stylesheets:    [proximidad.css,skin.css]  

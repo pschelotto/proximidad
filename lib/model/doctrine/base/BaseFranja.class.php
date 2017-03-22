@@ -19,7 +19,7 @@
  * @method Franja              setFranjaHasta()  Sets the current record's "franja_hasta" value
  * @method Franja              setFranjaTienda() Sets the current record's "FranjaTienda" collection
  * 
- * @package    stetik
+ * @package    proximidad
  * @subpackage model
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $

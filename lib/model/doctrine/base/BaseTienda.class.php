@@ -34,7 +34,7 @@
  * @method Tienda              setServicio()     Sets the current record's "Servicio" value
  * @method Tienda              setFranjaTienda() Sets the current record's "FranjaTienda" collection
  * 
- * @package    stetik
+ * @package    proximidad
  * @subpackage model
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
