@@ -10,8 +10,8 @@
  * @property string $direccion
  * @property string $codpos
  * @property string $poblacion
- * @property integer $latitud
- * @property integer $longitud
+ * @property double $latitud
+ * @property double $longitud
  * @property Servicio $Servicio
  * @property Doctrine_Collection $FranjaTienda
  * 
@@ -20,8 +20,8 @@
  * @method string              getDireccion()    Returns the current record's "direccion" value
  * @method string              getCodpos()       Returns the current record's "codpos" value
  * @method string              getPoblacion()    Returns the current record's "poblacion" value
- * @method integer             getLatitud()      Returns the current record's "latitud" value
- * @method integer             getLongitud()     Returns the current record's "longitud" value
+ * @method double              getLatitud()      Returns the current record's "latitud" value
+ * @method double              getLongitud()     Returns the current record's "longitud" value
  * @method Servicio            getServicio()     Returns the current record's "Servicio" value
  * @method Doctrine_Collection getFranjaTienda() Returns the current record's "FranjaTienda" collection
  * @method Tienda              setNombre()       Sets the current record's "nombre" value
@@ -70,13 +70,15 @@ abstract class BaseTienda extends sfDoctrineRecord
              'comment' => 'Población de la tienda',
              'length' => 20,
              ));
-        $this->hasColumn('latitud', 'integer', null, array(
-             'type' => 'integer',
+        $this->hasColumn('latitud', 'double', 15, array(
+             'type' => 'double',
              'comment' => 'latitud de la tienda',
+             'length' => 15,
              ));
-        $this->hasColumn('longitud', 'integer', null, array(
-             'type' => 'integer',
+        $this->hasColumn('longitud', 'double', 15, array(
+             'type' => 'double',
              'comment' => 'longitud de la tienda',
+             'length' => 15,
              ));
 
         $this->option('type', 'InnoDB');

@@ -10,8 +10,8 @@ Tienda:
     direccion: {type: string(80), comment:'Dirección de la tienda'}
     codpos: {type: string(5), comment:'Dirección de la tienda'}
     poblacion: {type: string(20), comment:'Población de la tienda'}
-    latitud: {type: integer, comment: 'latitud de la tienda'}
-    longitud: {type: integer, comment: 'longitud de la tienda'}
+    latitud: {type: double(15), comment: 'latitud de la tienda'}
+    longitud: {type: double(15), comment: 'longitud de la tienda'}
 
 Servicio:
   columns:

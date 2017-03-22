@@ -32,8 +32,8 @@ abstract class BaseTiendaForm extends BaseFormDoctrine
       'direccion' => new sfValidatorString(array('max_length' => 80, 'required' => false)),
       'codpos'    => new sfValidatorString(array('max_length' => 5, 'required' => false)),
       'poblacion' => new sfValidatorString(array('max_length' => 20, 'required' => false)),
-      'latitud'   => new sfValidatorInteger(array('required' => false)),
-      'longitud'  => new sfValidatorInteger(array('required' => false)),
+      'latitud'   => new sfValidatorPass(array('required' => false)),
+      'longitud'  => new sfValidatorPass(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('tienda[%s]');

@@ -28,8 +28,8 @@ abstract class BaseTiendaFormFilter extends BaseFormFilterDoctrine
       'direccion' => new sfValidatorPass(array('required' => false)),
       'codpos'    => new sfValidatorPass(array('required' => false)),
       'poblacion' => new sfValidatorPass(array('required' => false)),
-      'latitud'   => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'longitud'  => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'latitud'   => new sfValidatorPass(array('required' => false)),
+      'longitud'  => new sfValidatorPass(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('tienda_filters[%s]');
@@ -55,8 +55,8 @@ abstract class BaseTiendaFormFilter extends BaseFormFilterDoctrine
       'direccion' => 'Text',
       'codpos'    => 'Text',
       'poblacion' => 'Text',
-      'latitud'   => 'Number',
-      'longitud'  => 'Number',
+      'latitud'   => 'Text',
+      'longitud'  => 'Text',
     );
   }
 }

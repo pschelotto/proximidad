@@ -1,13 +1,42 @@
+<!--
+  <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+-->
 
-<script src="https://code.jquery.com/jquery-1.4.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>  
+
 <script>
+	$(document).ready(function(){
+	
+		var dialog1 = $("#dialog").dialog({ 
+			autoOpen: false,
+			height: 400,
+			width: 600,
+			dialogClass: 'noTitleStuff',
+			modal: true,
+			open: function(){
+				$('.ui-widget-overlay').bind('click',function(){
+					$('#dialog').dialog('close');
+				})
+			}
+		});
+	
+		$('#servicios').on('click','.vermapa',function(){
+			dialog1.css({'background-image':'url('+$(this).attr('data-href')+')'}).dialog('open');
+		});
+	});
 
 	function GeoLocalizeMe()
 	{
 		if (navigator.geolocation)
 		{
 			navigator.geolocation.getCurrentPosition(function(position){
-	//			$("#geoloc").html("Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude);
+				$('#latitud').val(position.coords.latitude);
+				$('#longitud').val(position.coords.longitude);
+				$.ajax({url:'/main',type:'post', data:position, success:function(data){
+					$('#servicios').html(data);
+				}});
 				$.ajax({url:'https://maps.googleapis.com/maps/api/geocode/json?latlng='+position.coords.latitude+','+position.coords.longitude,success:function(data){
 					$("#dnn_ctlSearchForm_ctlPlaceSearch_txtPlaceSearch").val(data.results[0].formatted_address);
 				}});
@@ -26,24 +55,10 @@
 
 	 ?>
 
+	<div id="servicios">
+		<?php include_partial('servicios',array('servicios' => $servicios)); ?>
+	</div>
+
+	<div id='dialog'></div>
+	
 </body>
-
-<?php
-
-	foreach($servicios as $servicio)
-	{
-		echo "<a href='/{$servicio->getSlug()}'>";
-		echo "<div class='servicio'>";
-		if($servicio->getImagen())
-			echo "<img src='/uploads/servicios/{$servicio->getImagen()}'>";
-
-		$tienda = $servicio->getTienda();
-		$addr = urlencode(implode(',',array($tienda->getDireccion(),$tienda->getCodpos(),$tienda->getPoblacion())));
-		echo "<a href='https://maps.google.com/maps/api/staticmap?center={$addr}&zoom=16&size=765x388&maptype=roadmap&markers=color:red|label:A|{$addr}&key=AIzaSyDGDRQoqRIutG1IbxEOf9nLfF3pFoUj1qA'>ver mapa</a>";
-		echo "<div class='content'>";
-		echo "<h2>{$servicio->getTitulo()}</h2>";
-		echo "<div>{$servicio->getDescripcion()}</div>";
-		echo "</div>";
-		echo "</div>";
-		echo "</a>";
-	}

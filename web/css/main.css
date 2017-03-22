@@ -57,6 +57,31 @@
 	text-align:center !important;
 }
 
+.servicio {
+}
 .servicio img{
 	max-width:280px;
+}
+
+.servicio a.vermapa{
+	position:relative;
+	bottom:15px;
+	left:5px;
+	font-weight:bold;
+	font-size:11px;
+	color:#53B8DA;
+	text-shadow: 1px 1px black;
+	cursor:pointer;
+}
+.servicio a.vermapa:hover{
+	color:#2388aa;
+	text-shadow: 1px 1px #222;
+}
+.servicio a.vermapa:active{
+	color:white;
+}
+.noTitleStuff .ui-dialog-titlebar {display:none;}
+.ui-widget-overlay {
+    background: #000 !important;
+    opacity: 0.8 !important;
 }

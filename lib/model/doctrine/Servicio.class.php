@@ -13,6 +13,6 @@
 class Servicio extends BaseServicio
 {
 	function getSlug(){
-		return $this->getId();
+		return "servicio?id=".$this->getId();
 	}
 }
