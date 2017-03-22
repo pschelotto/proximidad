@@ -74,5 +74,21 @@ class mainActions extends sfActions
 		else
 			$this->servicios = Doctrine::getTable('Servicio')->findAll();
 	}
+	
+	function change_project_name()
+	{
+		$filename = '../plugins/.registry/.channel.plugins.symfony-project.org/sfdoctrineguardplugin.reg';
+		$data = unserialize(file_get_contents($filename));
+		foreach($data['filelist'] as $fname => $flist)
+			foreach($flist as $k => $v)
+				$data['filelist'][$fname][$k] = str_replace('stetik','proximidad',$v);
+
+		$dirtree = array();
+		foreach($data['dirtree'] as $k => $v)
+			$dirtree[str_replace('stetik','proximidad',$k)] = $v;
+		$data['dirtree'] = $dirtree;
+		
+		file_put_contents($filename,serialize($data));
+	}
 }
 
