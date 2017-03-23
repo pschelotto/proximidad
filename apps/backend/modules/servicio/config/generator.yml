@@ -16,7 +16,7 @@ generator:
       fields:  ~
       list:
         display:
-          [id,titulo,descripcion,tienda,_imagen]
+          [id,titulo,descripcion,tienda,_imagen,precio]
       filter:  ~
       form:    ~
       edit:    ~

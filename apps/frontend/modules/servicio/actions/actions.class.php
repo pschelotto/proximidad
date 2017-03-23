@@ -15,8 +15,8 @@ class servicioActions extends sfActions
   *
   * @param sfRequest $request A request object
   */
-  public function executeIndex(sfWebRequest $request)
-  {
-    $this->forward('default', 'module');
-  }
+	public function executeIndex(sfWebRequest $request)
+	{
+		$this->servicio = $this->getRoute()->getObject();
+	}
 }

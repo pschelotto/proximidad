@@ -12,8 +12,6 @@ class ServicioForm extends BaseServicioForm
 {
 	public function configure()
 	{
-//        $this->widgetSchema['imagen'] = new sfWidgetFormInputFile();
-
 		$this->widgetSchema['imagen'] = new sfWidgetFormInputFileEditable(array(
 			'label'     => 'Imagen',
 			'file_src'  => '/uploads/servicios/'.$this->getObject()->getImagen(),
@@ -29,5 +27,13 @@ class ServicioForm extends BaseServicioForm
         ));
 
 		$this->validatorSchema['imagen_delete'] = new sfValidatorPass();
+
+		if($this->isNew())
+			$this->widgetSchema['slug'] = new sfWidgetFormInputHidden();
+		else
+			$this->widgetSchema['slug']->setAttribute('readonly', 'readonly');
+
+		$this->widgetSchema['created_at'] = new sfWidgetFormInputHidden();
+		$this->widgetSchema['updated_at'] = new sfWidgetFormInputHidden();
 	}
 }

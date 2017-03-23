@@ -9,17 +9,23 @@
  * @property text $descripcion
  * @property integer $tienda_id
  * @property string $imagen
+ * @property double $precio
+ * @property double $precio_old
  * @property Tienda $Tienda
  * 
  * @method string   getTitulo()      Returns the current record's "titulo" value
  * @method text     getDescripcion() Returns the current record's "descripcion" value
  * @method integer  getTiendaId()    Returns the current record's "tienda_id" value
  * @method string   getImagen()      Returns the current record's "imagen" value
+ * @method double   getPrecio()      Returns the current record's "precio" value
+ * @method double   getPrecioOld()   Returns the current record's "precio_old" value
  * @method Tienda   getTienda()      Returns the current record's "Tienda" value
  * @method Servicio setTitulo()      Sets the current record's "titulo" value
  * @method Servicio setDescripcion() Sets the current record's "descripcion" value
  * @method Servicio setTiendaId()    Sets the current record's "tienda_id" value
  * @method Servicio setImagen()      Sets the current record's "imagen" value
+ * @method Servicio setPrecio()      Sets the current record's "precio" value
+ * @method Servicio setPrecioOld()   Sets the current record's "precio_old" value
  * @method Servicio setTienda()      Sets the current record's "Tienda" value
  * 
  * @package    proximidad
@@ -32,11 +38,11 @@ abstract class BaseServicio extends sfDoctrineRecord
     public function setTableDefinition()
     {
         $this->setTableName('servicio');
-        $this->hasColumn('titulo', 'string', 50, array(
+        $this->hasColumn('titulo', 'string', 80, array(
              'type' => 'string',
              'notblank' => true,
              'comment' => 'Nombre del servicio',
-             'length' => 50,
+             'length' => 80,
              ));
         $this->hasColumn('descripcion', 'text', null, array(
              'type' => 'text',
@@ -51,6 +57,16 @@ abstract class BaseServicio extends sfDoctrineRecord
              'comment' => 'Imagen del servicio',
              'length' => 255,
              ));
+        $this->hasColumn('precio', 'double', 8, array(
+             'type' => 'double',
+             'comment' => 'Precio del servicio',
+             'length' => 8,
+             ));
+        $this->hasColumn('precio_old', 'double', 8, array(
+             'type' => 'double',
+             'comment' => 'Precio del servicio sin descuento',
+             'length' => 8,
+             ));
 
         $this->option('type', 'InnoDB');
         $this->option('collate', 'utf8_general_ci');
@@ -64,5 +80,45 @@ abstract class BaseServicio extends sfDoctrineRecord
              'local' => 'tienda_id',
              'foreign' => 'id',
              'onDelete' => 'SET NULL'));
+
+        $sluggable0 = new Doctrine_Template_Sluggable(array(
+             'fields' => 
+             array(
+              0 => 'titulo',
+             ),
+             'indexName' => 'slug',
+             'canUpdate' => true,
+             'unique' => true,
+             ));
+        $timestampable0 = new Doctrine_Template_Timestampable(array(
+             'created' => 
+             array(
+              'name' => 'created_at',
+              'columnDefinition' => 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP',
+              'default' => 'CURRENT_TIMESTAMP',
+              'type' => 'timestamp',
+              'format' => 'Y-m-d H:i:s',
+              'options' => 
+              array(
+              'notnull' => false,
+              'required' => false,
+              ),
+             ),
+             'updated' => 
+             array(
+              'name' => 'updated_at',
+              'columnDefinition' => 'TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP',
+              'default' => 'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP',
+              'type' => 'timestamp',
+              'format' => 'Y-m-d H:i:s',
+              'options' => 
+              array(
+              'notnull' => false,
+              'required' => false,
+              ),
+             ),
+             ));
+        $this->actAs($sluggable0);
+        $this->actAs($timestampable0);
     }
 }

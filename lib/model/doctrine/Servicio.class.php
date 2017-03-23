@@ -12,7 +12,13 @@
  */
 class Servicio extends BaseServicio
 {
-	function getSlug(){
-		return "servicio?id=".$this->getId();
+	public function getPrecioFmt()
+	{
+		return Proximidad::formatPrecio($this->getPrecio());
+	}
+
+	public function getPrecioOldFmt()
+	{
+		return Proximidad::formatPrecio($this->getPrecioOld());
 	}
 }

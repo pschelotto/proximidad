@@ -72,11 +72,13 @@ abstract class BaseTienda extends sfDoctrineRecord
              ));
         $this->hasColumn('latitud', 'double', 15, array(
              'type' => 'double',
+             'scale' => 10,
              'comment' => 'latitud de la tienda',
              'length' => 15,
              ));
         $this->hasColumn('longitud', 'double', 15, array(
              'type' => 'double',
+             'scale' => 10,
              'comment' => 'longitud de la tienda',
              'length' => 15,
              ));

@@ -16,3 +16,20 @@ div.content{
 	padding:20px;
 	text-align:center;
 }
+
+.precios{
+	margin-top:10px;
+	text-align:center;
+	width:100%
+}
+.precio{
+	display:inline-block;
+	font-size:1.2em;
+	font-weight:bold;
+}
+
+.precio_old{
+	color:red;
+	text-decoration:line-through;
+	display:inline-block;
+}

@@ -16,4 +16,9 @@ class ServicioTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Servicio');
     }
+    
+    public function getSlug($item)
+    {
+    	return $this->getInstance()->findOneBySlug($item['slug']);
+    }
 }

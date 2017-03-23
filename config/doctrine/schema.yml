@@ -2,7 +2,7 @@ options:
   type: InnoDB
   collate: utf8_general_ci
   charset: utf8
-  
+
 Tienda:
   columns:
     nombre: {type: string(50), notblank: true, comment:'Nombre de la tienda'}
@@ -10,15 +10,42 @@ Tienda:
     direccion: {type: string(80), comment:'Dirección de la tienda'}
     codpos: {type: string(5), comment:'Dirección de la tienda'}
     poblacion: {type: string(20), comment:'Población de la tienda'}
-    latitud: {type: double(15), comment: 'latitud de la tienda'}
-    longitud: {type: double(15), comment: 'longitud de la tienda'}
+    latitud: {type: double(15), scale:10, comment: 'latitud de la tienda'}
+    longitud: {type: double(15), scale:10, comment: 'longitud de la tienda'}
 
 Servicio:
+  actAs:
+    Sluggable:
+      fields: [titulo]
+      indexName: slug
+      canUpdate: true
+      unique: true
+    Timestampable:
+      created:
+        name: created_at
+        columnDefinition: TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        default: CURRENT_TIMESTAMP
+        type: timestamp
+        format: Y-m-d H:i:s
+        options:
+          notnull: false
+          required: false
+      updated:
+        name: updated_at
+        columnDefinition: TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+        default: CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+        type: timestamp
+        format: Y-m-d H:i:s
+        options:
+          notnull: false
+          required: false
   columns:
-    titulo: {type: string(50), notblank: true, comment:'Nombre del servicio'}
+    titulo: {type: string(80), notblank: true, comment:'Nombre del servicio'}
     descripcion: {type: text, comment:'Descripción del servicio'}
     tienda_id: {type: integer, comment:'Tienda que ofrece el servicio'}
     imagen: {type: string(255), comment:'Imagen del servicio'}
+    precio: {type: double(8), comment:'Precio del servicio'}
+    precio_old: {type: double(8), comment:'Precio del servicio sin descuento'}
   relations:
     Tienda: {onDelete: SET NULL, local: tienda_id, foreign: id, foreignType: one}
 
