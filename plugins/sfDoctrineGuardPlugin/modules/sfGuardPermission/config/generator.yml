@@ -21,5 +21,8 @@ generator:
       new:
         title: New Permission
 
+      filter:
+        display: [name, description, groups_list, users_list]
+
       form:
         display: [name, description, groups_list, users_list]

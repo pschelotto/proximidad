@@ -33,3 +33,11 @@ div.content{
 	text-decoration:line-through;
 	display:inline-block;
 }
+
+.dvRecentLocation ul{ 
+	padding:0;
+}
+.dvRecentLocation li{
+	list-style-type: none;
+	cursor: pointer;
+}

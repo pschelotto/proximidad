@@ -18,7 +18,11 @@
 			),
 			'@servicio' => 'Servicios',
 			'@tienda' => 'Tiendas',
+			'sf_guard_signout' => 'Logout',
 		);
+
+		if(!$sf_user->isSuperAdmin())
+			unset($menus['Control de Acceso']);
 
 		echo "<div id='sf_admin_menu'>";
 		echo "<ul>";

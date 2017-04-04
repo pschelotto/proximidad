@@ -18,6 +18,10 @@ generator:
         title:   User list
         display: [=username, created_at, updated_at, last_login]
 
+      filter:
+        display:
+          [first_name, last_name, username]
+
       form:
         class: sfGuardUserAdminForm
         display:

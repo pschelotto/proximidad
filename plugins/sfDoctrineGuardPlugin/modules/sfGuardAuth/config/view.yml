@@ -1,0 +1,3 @@
+all:  
+  stylesheets:    [proximidad.css,skin.css]  
+  layout: register_layout

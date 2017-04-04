@@ -18,6 +18,9 @@ generator:
       form:
         display: [name, description, users_list, permissions_list]
 
+      filter:
+        display: [name, description, users_list, permissions_list]
+
       edit:
         title: Editing Group "%%name%%"
 

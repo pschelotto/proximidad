@@ -1,0 +1,2 @@
+all:  
+  stylesheets:    [main.css,/sfDoctrinePlugin/css/global.css,/sfDoctrinePlugin/css/default.css]  
