@@ -10,7 +10,7 @@
  */
 class FranjaForm extends BaseFranjaForm
 {
-  public function configure()
-  {
-  }
+	public function configure()
+	{
+	}
 }

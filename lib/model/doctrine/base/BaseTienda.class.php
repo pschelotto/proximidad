@@ -14,6 +14,8 @@
  * @property double $longitud
  * @property integer $usuario_id
  * @property sfGuardUser $Usuario
+ * @property Servicio $Servicio
+ * @property Franja $Franja
  * 
  * @method string      getNombre()     Returns the current record's "nombre" value
  * @method string      getTelefono()   Returns the current record's "telefono" value
@@ -24,6 +26,8 @@
  * @method double      getLongitud()   Returns the current record's "longitud" value
  * @method integer     getUsuarioId()  Returns the current record's "usuario_id" value
  * @method sfGuardUser getUsuario()    Returns the current record's "Usuario" value
+ * @method Servicio    getServicio()   Returns the current record's "Servicio" value
+ * @method Franja      getFranja()     Returns the current record's "Franja" value
  * @method Tienda      setNombre()     Sets the current record's "nombre" value
  * @method Tienda      setTelefono()   Sets the current record's "telefono" value
  * @method Tienda      setDireccion()  Sets the current record's "direccion" value
@@ -33,6 +37,8 @@
  * @method Tienda      setLongitud()   Sets the current record's "longitud" value
  * @method Tienda      setUsuarioId()  Sets the current record's "usuario_id" value
  * @method Tienda      setUsuario()    Sets the current record's "Usuario" value
+ * @method Tienda      setServicio()   Sets the current record's "Servicio" value
+ * @method Tienda      setFranja()     Sets the current record's "Franja" value
  * 
  * @package    proximidad
  * @subpackage model
@@ -99,5 +105,13 @@ abstract class BaseTienda extends sfDoctrineRecord
              'local' => 'usuario_id',
              'foreign' => 'id',
              'onDelete' => 'SET NULL'));
+
+        $this->hasOne('Servicio', array(
+             'local' => 'id',
+             'foreign' => 'tienda_id'));
+
+        $this->hasOne('Franja', array(
+             'local' => 'id',
+             'foreign' => 'tienda_id'));
     }
 }
