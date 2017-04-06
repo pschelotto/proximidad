@@ -35,5 +35,16 @@ class ServicioForm extends BaseServicioForm
 
 		$this->widgetSchema['created_at'] = new sfWidgetFormInputHidden();
 		$this->widgetSchema['updated_at'] = new sfWidgetFormInputHidden();
+
+		$user = sfContext::getInstance()->getUser();
+		if(!$user->isSuperAdmin())
+		{
+			$this->widgetSchema['tienda_id'] = new sfWidgetFormDoctrineChoice(array(
+				'model' => $this->getRelatedModelName('Tienda'), 
+			    'query' => Doctrine_Query::create()->select('t.nombre')->from('Tienda t')->where('t.usuario_id = ?',$user->getGuardUser()->getId()),
+				'add_empty' => false
+			));
+		}
+
 	}
 }

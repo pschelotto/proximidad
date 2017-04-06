@@ -12,4 +12,9 @@
  */
 class sfGuardUser extends PluginsfGuardUser
 {
+	function __toString(){
+		if(!$this->getId())
+			return "";
+		return parent::__toString();
+	}
 }

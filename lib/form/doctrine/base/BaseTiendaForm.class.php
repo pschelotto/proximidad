@@ -15,25 +15,27 @@ abstract class BaseTiendaForm extends BaseFormDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'id'        => new sfWidgetFormInputHidden(),
-      'nombre'    => new sfWidgetFormInputText(),
-      'telefono'  => new sfWidgetFormInputText(),
-      'direccion' => new sfWidgetFormInputText(),
-      'codpos'    => new sfWidgetFormInputText(),
-      'poblacion' => new sfWidgetFormInputText(),
-      'latitud'   => new sfWidgetFormInputText(),
-      'longitud'  => new sfWidgetFormInputText(),
+      'id'         => new sfWidgetFormInputHidden(),
+      'nombre'     => new sfWidgetFormInputText(),
+      'telefono'   => new sfWidgetFormInputText(),
+      'direccion'  => new sfWidgetFormInputText(),
+      'codpos'     => new sfWidgetFormInputText(),
+      'poblacion'  => new sfWidgetFormInputText(),
+      'latitud'    => new sfWidgetFormInputText(),
+      'longitud'   => new sfWidgetFormInputText(),
+      'usuario_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Usuario'), 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
-      'id'        => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'nombre'    => new sfValidatorString(array('max_length' => 50)),
-      'telefono'  => new sfValidatorString(array('max_length' => 10, 'required' => false)),
-      'direccion' => new sfValidatorString(array('max_length' => 80, 'required' => false)),
-      'codpos'    => new sfValidatorString(array('max_length' => 5, 'required' => false)),
-      'poblacion' => new sfValidatorString(array('max_length' => 20, 'required' => false)),
-      'latitud'   => new sfValidatorPass(array('required' => false)),
-      'longitud'  => new sfValidatorPass(array('required' => false)),
+      'id'         => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'nombre'     => new sfValidatorString(array('max_length' => 50)),
+      'telefono'   => new sfValidatorString(array('max_length' => 10, 'required' => false)),
+      'direccion'  => new sfValidatorString(array('max_length' => 80, 'required' => false)),
+      'codpos'     => new sfValidatorString(array('max_length' => 5, 'required' => false)),
+      'poblacion'  => new sfValidatorString(array('max_length' => 20, 'required' => false)),
+      'latitud'    => new sfValidatorPass(array('required' => false)),
+      'longitud'   => new sfValidatorPass(array('required' => false)),
+      'usuario_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Usuario'), 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('tienda[%s]');

@@ -10,7 +10,11 @@
  */
 class TiendaFormFilter extends BaseTiendaFormFilter
 {
-  public function configure()
-  {
-  }
+	public function configure()
+	{
+		$user = sfContext::getInstance()->getUser();
+
+		if(!$user->isSuperAdmin())
+			$this->widgetSchema['usuario_id'] = new sfWidgetFormInputHidden();
+	}
 }

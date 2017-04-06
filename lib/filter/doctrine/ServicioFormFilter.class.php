@@ -10,7 +10,16 @@
  */
 class ServicioFormFilter extends BaseServicioFormFilter
 {
-  public function configure()
-  {
-  }
+	public function configure()
+	{
+		$user = sfContext::getInstance()->getUser();
+		if(!$user->isSuperAdmin())
+		{
+			$this->widgetSchema['tienda_id'] = new sfWidgetFormDoctrineChoice(array(
+				'model' => $this->getRelatedModelName('Tienda'), 
+			    'query' => Doctrine_Query::create()->select('t.nombre')->from('Tienda t')->where('t.usuario_id = ?',$user->getGuardUser()->getId()),
+				'add_empty' => true
+			));
+		}
+	}
 }

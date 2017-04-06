@@ -11,7 +11,7 @@ servicio:
 # default rules
 homepage:
   url:   /
-  param: { module: main, action: index }
+  param: { module: default, action: index }
 
 # generic rules
 # please, remove them by adding more specific rules

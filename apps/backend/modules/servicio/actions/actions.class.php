@@ -13,4 +13,18 @@ require_once dirname(__FILE__).'/../lib/servicioGeneratorHelper.class.php';
  */
 class servicioActions extends autoServicioActions
 {
+	protected function buildQuery()
+	{
+		$query = parent::buildQuery();
+
+		$user = $this->getUser();
+		if(!$user->hasPermission('Admin'))
+		{
+			$query
+				->leftJoin('r.Tienda t')
+				->andWhere('t.usuario_id = ?', $user->getGuardUser()->getId());
+		}
+
+		return $query;
+	}
 }

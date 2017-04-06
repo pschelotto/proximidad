@@ -13,15 +13,17 @@ abstract class BaseFranjaFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'dia_semana'   => new sfWidgetFormFilterInput(),
-      'franja_desde' => new sfWidgetFormFilterInput(),
-      'franja_hasta' => new sfWidgetFormFilterInput(),
+      'tienda_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Tienda'), 'add_empty' => true)),
+      'semana'    => new sfWidgetFormFilterInput(),
+      'desde'     => new sfWidgetFormFilterInput(),
+      'hasta'     => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
-      'dia_semana'   => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'franja_desde' => new sfValidatorPass(array('required' => false)),
-      'franja_hasta' => new sfValidatorPass(array('required' => false)),
+      'tienda_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Tienda'), 'column' => 'id')),
+      'semana'    => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'desde'     => new sfValidatorPass(array('required' => false)),
+      'hasta'     => new sfValidatorPass(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('franja_filters[%s]');
@@ -41,10 +43,11 @@ abstract class BaseFranjaFormFilter extends BaseFormFilterDoctrine
   public function getFields()
   {
     return array(
-      'id'           => 'Number',
-      'dia_semana'   => 'Number',
-      'franja_desde' => 'Text',
-      'franja_hasta' => 'Text',
+      'id'        => 'Number',
+      'tienda_id' => 'ForeignKey',
+      'semana'    => 'Number',
+      'desde'     => 'Text',
+      'hasta'     => 'Text',
     );
   }
 }

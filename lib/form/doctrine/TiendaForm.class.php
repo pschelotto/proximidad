@@ -14,6 +14,29 @@ class TiendaForm extends BaseTiendaForm
 	{
 		$this->widgetSchema['latitud'] = new sfWidgetFormInputHidden();
 		$this->widgetSchema['longitud'] = new sfWidgetFormInputHidden();
+
+		$user = sfContext::getInstance()->getUser();
+
+		if($this->getObject()->isNew())
+			$this->getObject()->setUsuario($user->getGuardUser());
+
+		if(!$user->isSuperAdmin())
+			$this->widgetSchema['usuario_id'] = new sfWidgetFormInputHidden();
+
+
+		//Documentos anexos
+		$form = new FranjaCollectionForm(null, array(
+			'registro' => $this->getObject(),
+			'cantidad' => 7,
+		));
+		$this->embedForm('franjas', $form);
+		$this->widgetSchema['franjas']->setLabel('Franjas');
+
+		$this->widgetSchema['lista_franjas'] = new sfWidgetListaFranjas(array(
+			'registro' => $this->getObject()
+		));
+		$this->widgetSchema['lista_franjas']->setLabel('Franjas');
+		$this->validatorSchema['lista_franjas'] = new sfValidatorPass();
 	}
 
 	protected function doUpdateObject($values)

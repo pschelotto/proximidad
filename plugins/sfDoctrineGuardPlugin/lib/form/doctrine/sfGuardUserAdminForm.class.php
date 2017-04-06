@@ -10,13 +10,6 @@
  */
 class sfGuardUserAdminForm extends BasesfGuardUserAdminForm
 {
-/*	public function setup()
-	{
-		parent::setup();
-
-		unset($this['username']);
-	}
-*/
 	public function configure()
 	{
 	}

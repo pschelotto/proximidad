@@ -20,10 +20,10 @@ class BasesfGuardAuthActions extends sfActions
   public function executeSignin($request)
   {
     $user = $this->getUser();
-    if ($user->isAuthenticated())
-    {
-      return $this->redirect('@homepage');
-    }
+
+// Así permitimos que se pueda logar con otro usuario
+//    if ($user->isAuthenticated())
+//		return $this->redirect('@homepage');
 
     $class = sfConfig::get('app_sf_guard_plugin_signin_form', 'sfGuardFormSignin'); 
     $this->form = new $class();
@@ -40,6 +40,12 @@ class BasesfGuardAuthActions extends sfActions
         // or to the referer
         // or to the homepage
         $signinUrl = sfConfig::get('app_sf_guard_plugin_success_signin_url', $user->getReferer($request->getReferer()));
+
+
+		// Si el usuario no tiene acceso a backend que cargue el frontend (/)
+		if(!$this->getUser()->hasPermission('Backend'))
+			$signinUrl = '/';
+
 
         return $this->redirect('' != $signinUrl ? $signinUrl : '@homepage');
       }

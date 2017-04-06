@@ -13,4 +13,14 @@ require_once dirname(__FILE__).'/../lib/tiendaGeneratorHelper.class.php';
  */
 class tiendaActions extends autoTiendaActions
 {
+	protected function buildQuery()
+	{
+		$query = parent::buildQuery();
+
+		$user = $this->getUser();
+		if(!$user->hasPermission('Admin'))
+			$query->andWhere('usuario_id = ?', $user->getGuardUser()->getId());
+
+		return $query;
+	}
 }

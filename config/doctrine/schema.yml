@@ -12,6 +12,9 @@ Tienda:
     poblacion: {type: string(20), comment:'Población de la tienda'}
     latitud: {type: double(15), scale:10, comment: 'latitud de la tienda'}
     longitud: {type: double(15), scale:10, comment: 'longitud de la tienda'}
+    usuario_id: {type: integer, comment:'Usuario responsable de la tienda'}
+  relations:
+    Usuario: {class: sfGuardUser, onDelete: SET NULL, local: usuario_id, foreign: id, foreignType: one}
 
 Servicio:
   actAs:
@@ -51,14 +54,9 @@ Servicio:
 
 Franja:
   columns:
-    dia_semana: {type: integer, comment:'día de la semana'}
-    franja_desde: {type: string(5), comment:'franja desde'}
-    franja_hasta: {type: string(5), comment:'franja hasta'}
-
-FranjaTienda:
-  columns:
-    franja_id: integer
-    tienda_id: integer
+    tienda_id: {type: integer, comment:'Tienda operativa dentro de la franja'}
+    semana: {type: integer, comment:'día de la semana'}
+    desde: {type: string(5), comment:'hora desde'}
+    hasta: {type: string(5), comment:'hora hasta'}
   relations:
-    Franja: {local: franja_id, foreign: id, onDelete: cascade}
-    Tienda: {local: tienda_id, foreign: id, onDelete: cascade}
+    Tienda: {onDelete: SET NULL, local: tienda_id, foreign: id, foreignType: one}

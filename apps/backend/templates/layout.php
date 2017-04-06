@@ -16,8 +16,8 @@
 				'guard/groups' => 'Grupos',
 				'guard/permissions' => 'Permisos',
 			),
-			'@servicio' => 'Servicios',
 			'@tienda' => 'Tiendas',
+			'@servicio' => 'Servicios',
 			'sf_guard_signout' => 'Logout',
 		);
 

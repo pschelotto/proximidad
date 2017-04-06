@@ -57,7 +57,7 @@ $(document).ready(function(){
 						}, 
 						search:$('#searchText').val()
 					};
-					$.ajax({url:base_path+'/main',type:'post', data:position, cache:false, success:function(data){
+					$.ajax({url:base_path+'/default',type:'post', data:position, cache:false, success:function(data){
 						$('#servicios').html(data);
 					}});
 
@@ -65,7 +65,7 @@ $(document).ready(function(){
 			}
 			else
 			{
-				$.ajax({url:base_path+'/main',type:'post', data:{search:$('#searchText').val()}, cache:false, success:function(data){
+				$.ajax({url:base_path+'/default',type:'post', data:{search:$('#searchText').val()}, cache:false, success:function(data){
 					$('#servicios').html(data);
 				}});
 			}
@@ -90,7 +90,7 @@ $(document).ready(function(){
 
 		var position = {bounds:{},search:$('#searchText').val()};
 		eval("position.bounds = "+$(this).attr('bounds')+";");
-		$.ajax({url:base_path+'/main',type:'post', data:position, cache:false, success:function(data){
+		$.ajax({url:base_path+'/default',type:'post', data:position, cache:false, success:function(data){
 			$('#servicios').html(data);
 		}});
 
@@ -108,7 +108,7 @@ $(document).ready(function(){
 			search: $('#searchText').val()
 		};
 
-		$.ajax({url:base_path+'/main',type:'post', data:search_data, cache:false, success:function(data){
+		$.ajax({url:base_path+'/default',type:'post', data:search_data, cache:false, success:function(data){
 			$('#servicios').html(data);
 		}});
 		
@@ -135,7 +135,7 @@ function updatePosition(position)
 
 	position.search = $('#searchText').val();
 
-	$.ajax({url:base_path+'/main',type:'post', data:position, success:function(data){
+	$.ajax({url:base_path+'/default',type:'post', data:position, success:function(data){
 		$('#servicios').html(data);
 	}});
 	$.ajax({url:'https://maps.googleapis.com/maps/api/geocode/json?latlng='+position.coords.latitude+','+position.coords.longitude,success:function(data){

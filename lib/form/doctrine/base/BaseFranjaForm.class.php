@@ -15,17 +15,19 @@ abstract class BaseFranjaForm extends BaseFormDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'id'           => new sfWidgetFormInputHidden(),
-      'dia_semana'   => new sfWidgetFormInputText(),
-      'franja_desde' => new sfWidgetFormInputText(),
-      'franja_hasta' => new sfWidgetFormInputText(),
+      'id'        => new sfWidgetFormInputHidden(),
+      'tienda_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Tienda'), 'add_empty' => true)),
+      'semana'    => new sfWidgetFormInputText(),
+      'desde'     => new sfWidgetFormInputText(),
+      'hasta'     => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
-      'id'           => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'dia_semana'   => new sfValidatorInteger(array('required' => false)),
-      'franja_desde' => new sfValidatorString(array('max_length' => 5, 'required' => false)),
-      'franja_hasta' => new sfValidatorString(array('max_length' => 5, 'required' => false)),
+      'id'        => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'tienda_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Tienda'), 'required' => false)),
+      'semana'    => new sfValidatorInteger(array('required' => false)),
+      'desde'     => new sfValidatorString(array('max_length' => 5, 'required' => false)),
+      'hasta'     => new sfValidatorString(array('max_length' => 5, 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('franja[%s]');

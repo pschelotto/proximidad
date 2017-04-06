@@ -13,23 +13,25 @@ abstract class BaseTiendaFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'nombre'    => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'telefono'  => new sfWidgetFormFilterInput(),
-      'direccion' => new sfWidgetFormFilterInput(),
-      'codpos'    => new sfWidgetFormFilterInput(),
-      'poblacion' => new sfWidgetFormFilterInput(),
-      'latitud'   => new sfWidgetFormFilterInput(),
-      'longitud'  => new sfWidgetFormFilterInput(),
+      'nombre'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'telefono'   => new sfWidgetFormFilterInput(),
+      'direccion'  => new sfWidgetFormFilterInput(),
+      'codpos'     => new sfWidgetFormFilterInput(),
+      'poblacion'  => new sfWidgetFormFilterInput(),
+      'latitud'    => new sfWidgetFormFilterInput(),
+      'longitud'   => new sfWidgetFormFilterInput(),
+      'usuario_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Usuario'), 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
-      'nombre'    => new sfValidatorPass(array('required' => false)),
-      'telefono'  => new sfValidatorPass(array('required' => false)),
-      'direccion' => new sfValidatorPass(array('required' => false)),
-      'codpos'    => new sfValidatorPass(array('required' => false)),
-      'poblacion' => new sfValidatorPass(array('required' => false)),
-      'latitud'   => new sfValidatorPass(array('required' => false)),
-      'longitud'  => new sfValidatorPass(array('required' => false)),
+      'nombre'     => new sfValidatorPass(array('required' => false)),
+      'telefono'   => new sfValidatorPass(array('required' => false)),
+      'direccion'  => new sfValidatorPass(array('required' => false)),
+      'codpos'     => new sfValidatorPass(array('required' => false)),
+      'poblacion'  => new sfValidatorPass(array('required' => false)),
+      'latitud'    => new sfValidatorPass(array('required' => false)),
+      'longitud'   => new sfValidatorPass(array('required' => false)),
+      'usuario_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Usuario'), 'column' => 'id')),
     ));
 
     $this->widgetSchema->setNameFormat('tienda_filters[%s]');
@@ -49,14 +51,15 @@ abstract class BaseTiendaFormFilter extends BaseFormFilterDoctrine
   public function getFields()
   {
     return array(
-      'id'        => 'Number',
-      'nombre'    => 'Text',
-      'telefono'  => 'Text',
-      'direccion' => 'Text',
-      'codpos'    => 'Text',
-      'poblacion' => 'Text',
-      'latitud'   => 'Text',
-      'longitud'  => 'Text',
+      'id'         => 'Number',
+      'nombre'     => 'Text',
+      'telefono'   => 'Text',
+      'direccion'  => 'Text',
+      'codpos'     => 'Text',
+      'poblacion'  => 'Text',
+      'latitud'    => 'Text',
+      'longitud'   => 'Text',
+      'usuario_id' => 'ForeignKey',
     );
   }
 }

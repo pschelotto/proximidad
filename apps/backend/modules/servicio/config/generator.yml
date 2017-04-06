@@ -13,11 +13,14 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
+      fields:
+        id: {credentials: [Admin]}
       list:
         display:
-          [id,titulo,descripcion,tienda,_imagen,precio]
-      filter:  ~
+          [id,=titulo,descripcion,tienda,_imagen,precio]
+      filter:
+        display:
+          [titulo,descripcion,tienda_id,slug]
       form:    ~
       edit:    ~
       new:     ~

@@ -17,7 +17,7 @@
 	</head>
 	<body>
 	
-		<?php include_partial('main/buscador'); ?>
+		<?php include_partial('default/buscador'); ?>
 		<div id='wrapper'>
 			<?php echo $sf_content ?>
 		</div>

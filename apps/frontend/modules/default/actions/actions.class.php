@@ -1,6 +1,6 @@
 <?php
 
-class mainActions extends sfActions
+class defaultActions extends sfActions
 {
 	public function executeIndex(sfRequest $request)
 	{
@@ -35,7 +35,7 @@ class mainActions extends sfActions
 			}
 			
 			sfContext::getInstance()->getConfiguration()->loadHelpers('Partial');
-			$html = get_partial("main/servicios", array(
+			$html = get_partial("default/servicios", array(
 				'servicios' 		=> $servicios,
 			));
 
@@ -140,6 +140,14 @@ class mainActions extends sfActions
 		}
 
 		return $servicios;
+	}
+
+	function executeLogout($request){
+		$this->getUser()->signOut();
+
+		$signoutUrl = sfConfig::get('app_sf_guard_plugin_success_signout_url', $request->getReferer());
+
+		$this->redirect('' != $signoutUrl ? $signoutUrl : '@homepage');
 	}
 
 /*	

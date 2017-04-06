@@ -13,9 +13,13 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
-      list:    ~
-      filter:  ~
+      fields:
+        Usuario: { credentials: [Admin] }
+        id: {credentials: [Admin]}
+      list:
+        display: [=id,=nombre,telefono,direccion,codpos,poblacion,Usuario]
+      filter:
+        display: [nombre,telefono,direccion,codpos,poblacion,usuario_id]
       form:    ~
       edit:    ~
       new:     ~

@@ -12,27 +12,27 @@
  * @property string $poblacion
  * @property double $latitud
  * @property double $longitud
- * @property Servicio $Servicio
- * @property Doctrine_Collection $FranjaTienda
+ * @property integer $usuario_id
+ * @property sfGuardUser $Usuario
  * 
- * @method string              getNombre()       Returns the current record's "nombre" value
- * @method string              getTelefono()     Returns the current record's "telefono" value
- * @method string              getDireccion()    Returns the current record's "direccion" value
- * @method string              getCodpos()       Returns the current record's "codpos" value
- * @method string              getPoblacion()    Returns the current record's "poblacion" value
- * @method double              getLatitud()      Returns the current record's "latitud" value
- * @method double              getLongitud()     Returns the current record's "longitud" value
- * @method Servicio            getServicio()     Returns the current record's "Servicio" value
- * @method Doctrine_Collection getFranjaTienda() Returns the current record's "FranjaTienda" collection
- * @method Tienda              setNombre()       Sets the current record's "nombre" value
- * @method Tienda              setTelefono()     Sets the current record's "telefono" value
- * @method Tienda              setDireccion()    Sets the current record's "direccion" value
- * @method Tienda              setCodpos()       Sets the current record's "codpos" value
- * @method Tienda              setPoblacion()    Sets the current record's "poblacion" value
- * @method Tienda              setLatitud()      Sets the current record's "latitud" value
- * @method Tienda              setLongitud()     Sets the current record's "longitud" value
- * @method Tienda              setServicio()     Sets the current record's "Servicio" value
- * @method Tienda              setFranjaTienda() Sets the current record's "FranjaTienda" collection
+ * @method string      getNombre()     Returns the current record's "nombre" value
+ * @method string      getTelefono()   Returns the current record's "telefono" value
+ * @method string      getDireccion()  Returns the current record's "direccion" value
+ * @method string      getCodpos()     Returns the current record's "codpos" value
+ * @method string      getPoblacion()  Returns the current record's "poblacion" value
+ * @method double      getLatitud()    Returns the current record's "latitud" value
+ * @method double      getLongitud()   Returns the current record's "longitud" value
+ * @method integer     getUsuarioId()  Returns the current record's "usuario_id" value
+ * @method sfGuardUser getUsuario()    Returns the current record's "Usuario" value
+ * @method Tienda      setNombre()     Sets the current record's "nombre" value
+ * @method Tienda      setTelefono()   Sets the current record's "telefono" value
+ * @method Tienda      setDireccion()  Sets the current record's "direccion" value
+ * @method Tienda      setCodpos()     Sets the current record's "codpos" value
+ * @method Tienda      setPoblacion()  Sets the current record's "poblacion" value
+ * @method Tienda      setLatitud()    Sets the current record's "latitud" value
+ * @method Tienda      setLongitud()   Sets the current record's "longitud" value
+ * @method Tienda      setUsuarioId()  Sets the current record's "usuario_id" value
+ * @method Tienda      setUsuario()    Sets the current record's "Usuario" value
  * 
  * @package    proximidad
  * @subpackage model
@@ -82,6 +82,10 @@ abstract class BaseTienda extends sfDoctrineRecord
              'comment' => 'longitud de la tienda',
              'length' => 15,
              ));
+        $this->hasColumn('usuario_id', 'integer', null, array(
+             'type' => 'integer',
+             'comment' => 'Usuario responsable de la tienda',
+             ));
 
         $this->option('type', 'InnoDB');
         $this->option('collate', 'utf8_general_ci');
@@ -91,12 +95,9 @@ abstract class BaseTienda extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('Servicio', array(
-             'local' => 'id',
-             'foreign' => 'tienda_id'));
-
-        $this->hasMany('FranjaTienda', array(
-             'local' => 'id',
-             'foreign' => 'tienda_id'));
+        $this->hasOne('sfGuardUser as Usuario', array(
+             'local' => 'usuario_id',
+             'foreign' => 'id',
+             'onDelete' => 'SET NULL'));
     }
 }
